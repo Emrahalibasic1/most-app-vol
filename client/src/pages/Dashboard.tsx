@@ -1,3 +1,4 @@
+import DashboardHeader from "../components/DashboardHeader";
 import OverdueTasks from "../components/OverDueTask";
 import StatCard from "../components/statCard";
 import TeamProgressList from "../components/teamProgressList";
@@ -13,7 +14,7 @@ const stats = [
 function Dashboard() {
   return (
     <div className="p-8">
-      <h1 className="font-bold text-2xl">Kontrolna tabla</h1>
+     <DashboardHeader />
 
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {stats.map((stat) => (
