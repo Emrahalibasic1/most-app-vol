@@ -1,3 +1,4 @@
+import { AlarmClockOff, ClipboardList, Flag, icons, Users } from "lucide-react";
 import DashboardHeader from "../components/DashboardHeader";
 import OverdueTasks from "../components/OverDueTask";
 import StatCard from "../components/statCard";
@@ -5,11 +6,11 @@ import TeamProgressList from "../components/teamProgressList";
 import { teams, overdueTasks } from "../data/mockDashboard";
 
 const stats = [
-  { id: 1, value: 68, label: "Ukupno aktivnih zadataka" },
-  { id: 2, value: 3, label: "Prekoračena roka" },
-  { id: 3, value: "74%", label: "Kvartalni OKR progres" },
-  { id: 4, value: 34, label: "Aktivnih volontera" },
-];
+  { id: 1, value: 68, label: "Ukupno aktivnih zadataka", icon: ClipboardList, badge: "+12%", tone: "blue", footer: "42 završeno • 19 u toku • 7 na čekanju" },
+  { id: 2, value: 3, label: "Prekoračena roka", icon: AlarmClockOff, badge: "Potrebna pažnja", tone: "red", footer: "2 tima imaju zastoje" },
+  { id: 3, value: "74%", label: "Kvartalni OKR progres", icon: Flag, badge: "Q2 2025", tone: "gray", footer: "Uspješan tempo" },
+  { id: 4, value: 34, label: "Aktivnih volontera", icon: Users, badge: "5 timova", tone: "green", footer: "Kapacitet: 82% • 2 slobodna" },
+] as const;
 
 function Dashboard() {
   return (
@@ -17,9 +18,17 @@ function Dashboard() {
      <DashboardHeader />
 
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {stats.map((stat) => (
-          <StatCard key={stat.id} value={stat.value} label={stat.label} />
-        ))}
+       {stats.map((stat) => (
+  <StatCard
+    key={stat.id}
+    value={stat.value}
+    label={stat.label}
+    icon={stat.icon}
+    badge={stat.badge}
+    tone={stat.tone}
+    footer={stat.footer}
+  />
+))}
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-3">
