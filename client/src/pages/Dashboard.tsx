@@ -3,8 +3,15 @@ import DashboardHeader from "../components/DashboardHeader";
 import OverdueTasks from "../components/OverDueTask";
 import StatCard from "../components/statCard";
 import TeamProgressList from "../components/teamProgressList";
-import { teams, overdueTasks, meetings } from "../data/mockDashboard";
 import UpcomingMeetings from "../components/UpcomingMeetings";
+import WorkloadDistribution from "../components/WorkloadDistribution";
+import {
+  teams,
+  overdueTasks,
+  meetings,
+  overloadedMembers,
+  freeMembers,
+} from "../data/mockDashboard";
 
 const stats = [
   { id: 1, value: 68, label: "Ukupno aktivnih zadataka", icon: ClipboardList, badge: "+12%", tone: "blue", footer: "42 završeno • 19 u toku • 7 na čekanju" },
@@ -16,25 +23,29 @@ const stats = [
 function Dashboard() {
   return (
     <div className="p-8">
-     <DashboardHeader />
+      <DashboardHeader />
 
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-       {stats.map((stat) => (
-  <StatCard
-    key={stat.id}
-    value={stat.value}
-    label={stat.label}
-    icon={stat.icon}
-    badge={stat.badge}
-    tone={stat.tone}
-    footer={stat.footer}
-  />
-))}
+        {stats.map((stat) => (
+          <StatCard
+            key={stat.id}
+            value={stat.value}
+            label={stat.label}
+            icon={stat.icon}
+            badge={stat.badge}
+            tone={stat.tone}
+            footer={stat.footer}
+          />
+        ))}
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-3">
         <div className="space-y-6 xl:col-span-2">
           <TeamProgressList teams={teams} />
+          <WorkloadDistribution
+            overloaded={overloadedMembers}
+            free={freeMembers}
+          />
         </div>
         <div className="space-y-6">
           <OverdueTasks tasks={overdueTasks} />
