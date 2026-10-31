@@ -64,3 +64,19 @@ export const meetings: Meeting[] = [
     action: "Detalji agende",
   },
 ];
+export type Member = {
+  id: number;
+  name: string;
+  team: string;
+  tasks: number;
+};
+
+export const overloadedMembers: Member[] = [
+  { id: 1, name: "Kenan M.", team: "IT tim", tasks: 5 },
+  { id: 2, name: "Emina S.", team: "Dizajn tim", tasks: 4 },
+];
+
+export const freeMembers: Member[] = [
+  { id: 3, name: "Faris D.", team: "HR tim", tasks: 1 },
+  { id: 4, name: "Ajla P.", team: "Edu tim", tasks: 0 },
+];
