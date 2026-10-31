@@ -1,9 +1,10 @@
-import { AlarmClockOff, ClipboardList, Flag, icons, Users } from "lucide-react";
+import { AlarmClockOff, ClipboardList, Flag, Users } from "lucide-react";
 import DashboardHeader from "../components/DashboardHeader";
 import OverdueTasks from "../components/OverDueTask";
 import StatCard from "../components/statCard";
 import TeamProgressList from "../components/teamProgressList";
-import { teams, overdueTasks } from "../data/mockDashboard";
+import { teams, overdueTasks, meetings } from "../data/mockDashboard";
+import UpcomingMeetings from "../components/UpcomingMeetings";
 
 const stats = [
   { id: 1, value: 68, label: "Ukupno aktivnih zadataka", icon: ClipboardList, badge: "+12%", tone: "blue", footer: "42 završeno • 19 u toku • 7 na čekanju" },
@@ -37,6 +38,7 @@ function Dashboard() {
         </div>
         <div className="space-y-6">
           <OverdueTasks tasks={overdueTasks} />
+          <UpcomingMeetings meetings={meetings} />
         </div>
       </div>
     </div>
