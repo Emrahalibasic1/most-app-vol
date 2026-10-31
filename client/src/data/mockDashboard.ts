@@ -14,6 +14,7 @@ export type OverdueTask = {
   title: string;
   assignee: string;
   due: string;
+  action: "reminder" | "help" ;
 };
 
 export const teams: Team[] = [
@@ -25,6 +26,6 @@ export const teams: Team[] = [
 ];
 
 export const overdueTasks: OverdueTask[] = [
-  { id: 1, team: "Dizajn tim", title: "Priprema roll-up banera za Info dan", assignee: "Emina S.", due: "Jučer" },
-  { id: 2, team: "IT tim", title: "Testiranje e-mail servera za registraciju", assignee: "Kenan M.", due: "Prije 2 dana" },
+  { id: 1, team: "Dizajn tim", title: "Priprema roll-up banera za Info dan", assignee: "Emina S.", due: "Jučer", action: "reminder" },
+  { id: 2, team: "IT Inženjering", title: "Testiranje e-mail servera za registraciju", assignee: "Kenan M.", due: "Prije 2 dana", action: "help" },
 ];
