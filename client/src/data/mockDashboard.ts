@@ -27,6 +27,38 @@ export type Meeting = {
   confirmed: number;
   action: string;
 };
+export type Member = {
+  id: number;
+  name: string;
+  team: string;
+  tasks: number;
+};
+
+export type VolunteerOfMonth = {
+  name: string;
+  team: string;
+  tasks: number;
+  date: string;
+  description: string;
+};
+
+export type KeyResult = {
+  id: number;
+  label: string;
+  current: number;
+  target: number;
+};
+
+export type Goal = {
+  id: number;
+  title: string;
+  progress: number;
+  color: string;
+  keyResults?: KeyResult[];
+  teams?: string;
+  deadline?: string;
+};
+
 export const teams: Team[] = [
   { id: 1, name: "Dizajn tim", coordinator: "Lejla I.", tasks: 14, progress: 85, color: "bg-purple-600" },
   { id: 2, name: "IT Inženjering", coordinator: "Denis K.", tasks: 18, progress: 60, color: "bg-blue-600", late: 1 },
@@ -64,12 +96,6 @@ export const meetings: Meeting[] = [
     action: "Detalji agende",
   },
 ];
-export type Member = {
-  id: number;
-  name: string;
-  team: string;
-  tasks: number;
-};
 
 export const overloadedMembers: Member[] = [
   { id: 1, name: "Kenan M.", team: "IT tim", tasks: 5 },
@@ -79,4 +105,34 @@ export const overloadedMembers: Member[] = [
 export const freeMembers: Member[] = [
   { id: 3, name: "Faris D.", team: "HR tim", tasks: 1 },
   { id: 4, name: "Ajla P.", team: "Edu tim", tasks: 0 },
+];
+
+export const volunteerOfMonth: VolunteerOfMonth = {
+  name: "Hana O.",
+  team: "PR & Komunikacije",
+  tasks: 14,
+  date: "25. maj 2026",
+  description:
+    "Hana je u maju samostalno kompletirala 14 zadataka, koordinisala 2 medijska istupa i nesebično mentorisala 3 nova volontera!",
+};
+
+export const goals: Goal[] = [
+  {
+    id: 1,
+    title: "Proširiti bazu volontera za ljetnu kampanju",
+    progress: 80,
+    color: "bg-emerald-600",
+    keyResults: [
+      { id: 1, label: "novih prijavljenih volontera", current: 42, target: 50 },
+      { id: 2, label: "univerzitetskih info-radionica", current: 4, target: 5 },
+    ],
+  },
+  {
+    id: 2,
+    title: "Lansiranje nove web platforme volontera",
+    progress: 65,
+    color: "bg-purple-600",
+    teams: "IT Inženjering & PR & Komunikacije",
+    deadline: "15. Juni",
+  },
 ];
