@@ -12,7 +12,7 @@ function DashboardHeader() {
     <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
       <div>
         <div className="flex flex-wrap items-center gap-3">
-          <h1 className="text-3xl font-bold">Dobrodošli nazad, Amina! 👋</h1>
+          <h1 className="text-3xl font-bold">Dobrodošli nazad, Emrah! 👋</h1>
           <span className="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium capitalize text-blue-700 dark:bg-blue-950 dark:text-blue-300">
             {today}
           </span>
