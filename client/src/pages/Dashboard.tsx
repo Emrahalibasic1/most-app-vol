@@ -11,7 +11,11 @@ import {
   meetings,
   overloadedMembers,
   freeMembers,
+  volunteerOfMonth,
+  goals,
 } from "../data/mockDashboard";
+import CommunityRecognition from "../components/CommunityRecognition";
+import OkrGoals from "../components/OkrGoals";
 
 const stats = [
   { id: 1, value: 68, label: "Ukupno aktivnih zadataka", icon: ClipboardList, badge: "+12%", tone: "blue", footer: "42 završeno • 19 u toku • 7 na čekanju" },
@@ -46,10 +50,12 @@ function Dashboard() {
             overloaded={overloadedMembers}
             free={freeMembers}
           />
+          <OkrGoals goals = {goals} />
         </div>
         <div className="space-y-6">
           <OverdueTasks tasks={overdueTasks} />
           <UpcomingMeetings meetings={meetings} />
+           <CommunityRecognition volunteer={volunteerOfMonth} />
         </div>
       </div>
     </div>
