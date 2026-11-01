@@ -5,7 +5,8 @@ export type Team = {
   tasks: number;
   progress: number;
   color: string;     
-  late?: number;     
+  late?: number;   
+  members:number;  
 };
 
 export type OverdueTask = {
@@ -60,11 +61,11 @@ export type Goal = {
 };
 
 export const teams: Team[] = [
-  { id: 1, name: "Dizajn tim", coordinator: "Lejla I.", tasks: 14, progress: 85, color: "bg-purple-600" },
-  { id: 2, name: "IT Inženjering", coordinator: "Denis K.", tasks: 18, progress: 60, color: "bg-blue-600", late: 1 },
-  { id: 3, name: "PR & Komunikacije", coordinator: "Sara M.", tasks: 11, progress: 90, color: "bg-pink-500" },
-  { id: 4, name: "HR & Volonteri", coordinator: "Haris T.", tasks: 12, progress: 70, color: "bg-emerald-600" },
-  { id: 5, name: "Edu & Radionice", coordinator: "Nejra B.", tasks: 13, progress: 55, color: "bg-teal-500" },
+  { id: 1, name: "Dizajn tim", coordinator: "Lejla I.", tasks: 14, progress: 85, color: "bg-purple-600",members:8 },
+  { id: 2, name: "IT Inženjering", coordinator: "Denis K.", tasks: 18, progress: 60, color: "bg-blue-600", late: 1,members:14 },
+  { id: 3, name: "PR & Komunikacije", coordinator: "Sara M.", tasks: 11, progress: 90, color: "bg-pink-500",members:6 },
+  { id: 4, name: "HR & Volonteri", coordinator: "Haris T.", tasks: 12, progress: 70, color: "bg-emerald-600",members:11 },
+  { id: 5, name: "Edu & Radionice", coordinator: "Nejra B.", tasks: 13, progress: 55, color: "bg-teal-500",members:5 },
 ];
 
 export const overdueTasks: OverdueTask[] = [
