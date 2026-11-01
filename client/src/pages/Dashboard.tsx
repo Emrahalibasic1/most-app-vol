@@ -1,10 +1,18 @@
-import { AlarmClockOff, ClipboardList, Flag, Users } from "lucide-react";
+import {
+  AlarmClockOff,
+  ClipboardList,
+  Flag,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import DashboardHeader from "../components/DashboardHeader";
 import OverdueTasks from "../components/OverDueTask";
-import StatCard from "../components/statCard";
+import StatCard, { type Tone } from "../components/statCard";
 import TeamProgressList from "../components/teamProgressList";
 import UpcomingMeetings from "../components/UpcomingMeetings";
 import WorkloadDistribution from "../components/WorkloadDistribution";
+import CommunityRecognition from "../components/CommunityRecognition";
+import OkrGoals from "../components/OkrGoals";
 import {
   teams,
   overdueTasks,
@@ -14,15 +22,24 @@ import {
   volunteerOfMonth,
   goals,
 } from "../data/mockDashboard";
-import CommunityRecognition from "../components/CommunityRecognition";
-import OkrGoals from "../components/OkrGoals";
 
-const stats = [
+type Stat = {
+  id: number;
+  value: string | number;
+  label: string;
+  icon: LucideIcon;
+  badge: string;
+  tone: Tone;
+  footer: string;
+  progress?: number;
+};
+
+const stats: Stat[] = [
   { id: 1, value: 68, label: "Ukupno aktivnih zadataka", icon: ClipboardList, badge: "+12%", tone: "blue", footer: "42 završeno • 19 u toku • 7 na čekanju" },
   { id: 2, value: 3, label: "Prekoračena roka", icon: AlarmClockOff, badge: "Potrebna pažnja", tone: "red", footer: "2 tima imaju zastoje" },
-  { id: 3, value: "74%", label: "Kvartalni OKR progres", icon: Flag, badge: "Q2 2025", tone: "gray", footer: "Uspješan tempo" },
+  { id: 3, value: "74%", label: "Kvartalni OKR progres", icon: Flag, badge: "Q2 2025", tone: "gray", footer: "Uspješan tempo", progress: 74 },
   { id: 4, value: 34, label: "Aktivnih volontera", icon: Users, badge: "5 timova", tone: "green", footer: "Kapacitet: 82% • 2 slobodna" },
-] as const;
+];
 
 function Dashboard() {
   return (
@@ -39,6 +56,7 @@ function Dashboard() {
             badge={stat.badge}
             tone={stat.tone}
             footer={stat.footer}
+            progress={stat.progress}
           />
         ))}
       </div>
@@ -50,12 +68,12 @@ function Dashboard() {
             overloaded={overloadedMembers}
             free={freeMembers}
           />
-          <OkrGoals goals = {goals} />
+          <OkrGoals goals={goals} />
         </div>
         <div className="space-y-6">
           <OverdueTasks tasks={overdueTasks} />
           <UpcomingMeetings meetings={meetings} />
-           <CommunityRecognition volunteer={volunteerOfMonth} />
+          <CommunityRecognition volunteer={volunteerOfMonth} />
         </div>
       </div>
     </div>

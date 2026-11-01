@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 
-type Tone = "blue" | "gray" | "red" | "green";
+export type Tone = "blue" | "gray" | "red" | "green";
 
 type StatCardProps = {
   value: string | number;
@@ -9,6 +9,7 @@ type StatCardProps = {
   badge: string;
   tone: Tone;
   footer: string;
+  progress?:number;
 };
 
 const tones: Record<Tone, { icon: string; badge: string }> = {
@@ -30,7 +31,7 @@ gray: {
   },
 };
 
-function StatCard({ value, label, icon: Icon, badge, tone, footer }: StatCardProps) {
+function StatCard({ value, label, icon: Icon, badge, tone, footer, progress }: StatCardProps) {
   const color = tones[tone];
 
   return (
@@ -46,10 +47,18 @@ function StatCard({ value, label, icon: Icon, badge, tone, footer }: StatCardPro
 
       <div className="mt-4 text-4xl font-bold">{value}</div>
       <div className="text-sm text-slate-500 dark:text-slate-400">{label}</div>
-
+        {progress !== undefined && (
+          <div className="mt-3 h-2 rounded-full bg-slate-200 dark:bg-slate-700">
+            <div
+              className="h-2 rounded-full bg-emerald-600"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        )}
       <div className="mt-4 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-600 dark:bg-slate-900 dark:text-slate-300">
         {footer}
       </div>
+
     </div>
   );
 }
