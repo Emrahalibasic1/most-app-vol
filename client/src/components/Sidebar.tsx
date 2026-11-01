@@ -3,6 +3,7 @@ import {
   ChartColumn,
   CircleCheck,
   Flag,
+  Heart,
   LayoutDashboard,
   UserCog,
   Users,
@@ -22,7 +23,7 @@ const navItems = [
 
 function Sidebar() {
   return (
-    <aside className="w-64 border-r border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+    <aside className="flex flex-col w-64 border-r border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
       <div>
         <div className="text-lg font-bold text-blue-700">VolonteriHub</div>
         <div className="text-xs text-slate-500">ZAJEDNICA & ZADACI</div>
@@ -87,6 +88,25 @@ function Sidebar() {
           </li>
         ))}
       </ul>
+
+       <div className="mt-auto pt-6">
+  <div className="rounded-xl border border-blue-100 bg-blue-50 p-4 dark:border-blue-900 dark:bg-blue-950/40">
+    <div className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
+      <Heart size={16} />
+      <h3 className="text-sm font-bold">Zajedno stvaramo!</h3>
+    </div>
+    <p className="mt-2 text-xs text-slate-600 dark:text-slate-300">
+      Ove sedmice realizovano je 84% volonterskih aktivnosti.
+    </p>
+    <Link
+      to="/"
+      className="mt-3 inline-block text-xs font-medium text-blue-700 hover:underline dark:text-blue-400"
+    >
+      Pomoć i podrška →
+    </Link>
+  </div>
+</div>
+
     </aside>
   );
 }
