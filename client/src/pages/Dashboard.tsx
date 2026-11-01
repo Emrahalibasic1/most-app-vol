@@ -32,11 +32,12 @@ type Stat = {
   tone: Tone;
   footer: string;
   progress?: number;
+  link?:boolean;
 };
 
 const stats: Stat[] = [
   { id: 1, value: 68, label: "Ukupno aktivnih zadataka", icon: ClipboardList, badge: "+12%", tone: "blue", footer: "42 završeno • 19 u toku • 7 na čekanju" },
-  { id: 2, value: 3, label: "Prekoračena roka", icon: AlarmClockOff, badge: "Potrebna pažnja", tone: "red", footer: "2 tima imaju zastoje" },
+  { id: 2, value: 3, label: "Prekoračena roka", icon: AlarmClockOff, badge: "Potrebna pažnja", tone: "red", footer: "2 tima imaju zastoje", link:true },
   { id: 3, value: "74%", label: "Kvartalni OKR progres", icon: Flag, badge: "Q2 2025", tone: "gray", footer: "Uspješan tempo", progress: 74 },
   { id: 4, value: 34, label: "Aktivnih volontera", icon: Users, badge: "5 timova", tone: "green", footer: "Kapacitet: 82% • 2 slobodna" },
 ];
@@ -57,6 +58,7 @@ function Dashboard() {
             tone={stat.tone}
             footer={stat.footer}
             progress={stat.progress}
+            link={stat.link}
           />
         ))}
       </div>
