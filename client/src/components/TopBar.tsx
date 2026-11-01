@@ -1,4 +1,5 @@
-import { Bell, Search, Sun } from "lucide-react";
+import { Bell, Search } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 function TopBar() {
   return (
@@ -38,7 +39,7 @@ function TopBar() {
       </div>
       <div className="flex items-center gap-4">
         <button className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">
-          <Sun size={18} />
+          <ThemeToggle />
         </button>
 
         <button className="relative rounded-lg p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">
