@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { label: "Kontrolna tabla", path: "/" },
@@ -57,10 +56,7 @@ function Sidebar() {
           </li>
         ))}
       </ul>
-      <div className="mt-6">
-            <ThemeToggle/>
-      </div>
-  
+    
     </aside>
   );
 }
