@@ -38,10 +38,7 @@ function TopBar() {
         </button>
       </div>
       <div className="flex items-center gap-4">
-        <button className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">
           <ThemeToggle />
-        </button>
-
         <button className="relative rounded-lg p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">
           <Bell size={18} />
           <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold text-white">
