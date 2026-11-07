@@ -3,7 +3,6 @@ import type { TeamId } from "../types/task";
 import TeamFilters from "../components/teams/TeamFilters";
 import TeamCard from "../components/teams/TeamCard";
 import { TEAMS_DATA } from "../data/mockTeams";
-import { teams } from "../data/mockDashboard";
 
 function Teams() {
   const [selected, setSelected] = useState<TeamId | "all">("all");
