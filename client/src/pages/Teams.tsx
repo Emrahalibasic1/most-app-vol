@@ -3,6 +3,7 @@ import type { TeamId } from "../types/task";
 import TeamFilters from "../components/teams/TeamFilters";
 import TeamCard from "../components/teams/TeamCard";
 import { TEAMS_DATA } from "../data/mockTeams";
+import TeamStats from "../components/teams/TeamStats";
 
 function Teams() {
   const [selected, setSelected] = useState<TeamId | "all">("all");
@@ -12,7 +13,9 @@ function Teams() {
       <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
         Timovi i članovi
       </h1>
-
+      <div className="mt-6">
+        <TeamStats />
+      </div>
       <div className="mt-6">
         <TeamFilters selected={selected} onSelect={setSelected} />
       </div>
