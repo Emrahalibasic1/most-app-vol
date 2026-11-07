@@ -16,13 +16,22 @@ const STATUS_STYLE: Record<MemberStatus, string> = {
 };
 
 type Props = {
-  team: Team;
+  team : Team;
+  search : string;
+  roleFilter: MemberRole | "all";
+  statusFilter: MemberStatus | "all";
 };
 
-function TeamCard({ team }: Props) {
+function TeamCard({ team, search, roleFilter, statusFilter }: Props) {
   const label = TEAMS[team.id].label;
   const coordinator = TEAM_MEMBERS.find((m) => m.id === team.coordinatorId);
-  const members = TEAM_MEMBERS.filter((m) => team.memberIds.includes(m.id));
+  const members = TEAM_MEMBERS.filter((m) => team.memberIds.includes(m.id) && m.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) &&
+    (roleFilter === "all" || m.role === roleFilter) &&
+    (statusFilter === "all" || m.status === statusFilter));
+  if(members.length === 0) 
+  {
+    return null;
+  }
 
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
